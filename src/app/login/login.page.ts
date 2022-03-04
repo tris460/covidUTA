@@ -21,6 +21,10 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    console.log(this.email, '---', this.password);
+    if (this.email === 'abc' && this.password === '123') {
+      this.router.navigate(['tabs', 'tab1']);
+    } else {
+      alert('Incorrect password or email');
+    }
   }
 }
