@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.page.scss'],
 })
 export class UserPage implements OnInit {
-
-  constructor() { }
+  date: Date;
+  dateDMY: string;
+  constructor() {
+    this.date = new Date();
+    this.dateDMY = this.date.toDateString();
+   }
 
   ngOnInit() {
   }
