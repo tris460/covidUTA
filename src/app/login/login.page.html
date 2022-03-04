@@ -5,18 +5,19 @@
 </ion-header>
 
 <ion-content style="height: 90vh;">
+    <ion-img src="../../assets/logocovid.png" class="logo"></ion-img>
   <ion-item>
-    <ion-label position="floating">Email</ion-label>
+    <ion-label position="floating">Email</ion-label><br>
     <ion-input [(ngModel)]="email" type="text"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="floating">Password</ion-label>
+    <ion-label position="floating">Password</ion-label><br>
     <ion-input [(ngModel)]="password" type="password"></ion-input>
-  </ion-item>
+  </ion-item><br>
   <ion-button (click)="login()">
     <ion-label>Login</ion-label>
     <ion-icon name="log-in"></ion-icon>
-  </ion-button>
+  </ion-button><br><br>
   <ion-item>
     <ion-label>
       Forgot your password?
