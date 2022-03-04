@@ -4,16 +4,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="height: 90vh;">
   <ion-item>
     <ion-label position="floating">Email</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]="email" type="text"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="floating">Password</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]="password" type="password"></ion-input>
   </ion-item>
-  <ion-button>
+  <ion-button (click)="login()">
     <ion-label>Login</ion-label>
     <ion-icon name="log-in"></ion-icon>
   </ion-button>
