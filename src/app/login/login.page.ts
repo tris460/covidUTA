@@ -21,7 +21,11 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    if (this.email === 'abc' && this.password === '123') {
+    if (this.email === 'abc' && this.password === '123') { //If the credentials are correct
+      const USER_INFO =  { //Object to save data in local storage
+        email: this.email,
+      };
+      localStorage.setItem('userCovidUta', JSON.stringify(USER_INFO)); //Save data in localStorage, it only receives string
       this.router.navigate(['tabs', 'tab1']);
     } else {
       alert('Incorrect password or email');
