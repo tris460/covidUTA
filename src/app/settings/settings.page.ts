@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserDataService } from '../services/user-data.service';
 
 @Component({
   selector: 'app-settings',
@@ -7,8 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
+  userName: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public userDataService: UserDataService) {
+    this.userName = userDataService.userLogged.email;
+   }
 
   ngOnInit() {
   }
