@@ -28,9 +28,9 @@ export class LoginPage implements OnInit {
         rol: 'admin'
       };
       localStorage.setItem('userCovidUta', JSON.stringify(USER_INFO)); //Save data in localStorage, it only receives string
-      this.router.navigate(['tabs', 'tab1']);
+      this.router.navigate(['tabs', 'user']);
     } else {
-      alert('Incorrect password or email');
+      this.showAlert('Error', 'Incorrect password or email', ['OK']);
     }
   }
   async showAlert(headerA, messageA, button) {
