@@ -11,14 +11,27 @@ export class UserPage implements OnInit {
   dateDMY: string;
   userName: object;
   showForm: boolean;
+  symptoms: string;
+  notes: string;
+
   constructor(public userDataService: UserDataService) {
     this.date = new Date();
     this.dateDMY = this.date.toDateString();
     this.userName = userDataService.userLogged.email;
     this.showForm = false;
+    this.symptoms = '';
+    this.notes = '';
    }
 
   ngOnInit() {
   }
-  addSymptoms(){}
+
+  //Save the symptoms
+  addSymptoms(){
+    const NEW_SYMPTOMS = {
+      date: this.date,
+      symptoms: this.symptoms,
+      notes: this.notes,
+    };
+  }
 }

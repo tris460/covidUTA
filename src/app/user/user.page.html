@@ -18,19 +18,19 @@
         <tr>
           <ion-item>
             <ion-label position="floating">Date</ion-label><br>
-            <ion-input>{{dateDMY}}</ion-input>
+            <p>{{dateDMY}}</p>
           </ion-item>
         </tr>
         <tr>
           <ion-item>
             <ion-label position="floating">Symptoms</ion-label><br>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="symptoms"></ion-input>
           </ion-item>
         </tr>
         <tr>
           <ion-item>
             <ion-label position="floating">Notes</ion-label><br>
-            <ion-input></ion-input>
+            <ion-input [(ngModel)]="notes"></ion-input>
           </ion-item>
         </tr>
         <tr>
