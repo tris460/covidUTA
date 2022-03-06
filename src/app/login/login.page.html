@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content style="height: 90vh;">
+<ion-content class="container">
     <ion-img src="../../assets/logocovid.png" class="logo"></ion-img>
   <ion-item>
     <ion-label position="floating">Email</ion-label><br>
@@ -12,16 +12,15 @@
   </ion-item>
   <ion-item>
     <ion-label position="floating">Password</ion-label><br>
-    <ion-input [(ngModel)]="password" type="password"></ion-input>
+    <ion-input [(ngModel)]="password" type="password"></ion-input><br>
   </ion-item><br>
   <ion-button (click)="login()">
     <ion-label>Login</ion-label>
     <ion-icon name="log-in"></ion-icon>
   </ion-button><br><br>
   <ion-item>
-    <ion-label>
+    <ion-label class="forgotpass">
       Forgot your password?
     </ion-label>
   </ion-item>
-
 </ion-content>
