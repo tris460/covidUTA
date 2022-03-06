@@ -8,11 +8,11 @@
   <ion-item>
     <p>Welcome {{userName}}!</p>
   </ion-item>
-  <ion-item>
+  <ion-item (click)="showForm = !showForm">
     <ion-icon name="add-circle-outline"></ion-icon>
     <ion-label>New</ion-label>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="showForm">
     <table>
       <td>
         <tr>
@@ -32,6 +32,12 @@
             <ion-label position="floating">Notes</ion-label><br>
             <ion-input></ion-input>
           </ion-item>
+        </tr>
+        <tr>
+          <ion-button (click)="addSymptoms()">
+            <ion-icon name="add-circle-outline"></ion-icon>
+            <ion-label>Add</ion-label>
+          </ion-button>
         </tr>
       </td>
     </table>
