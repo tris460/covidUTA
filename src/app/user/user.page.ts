@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserDataService } from '../services/user-data.service';
 
 @Component({
   selector: 'app-user',
@@ -8,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class UserPage implements OnInit {
   date: Date;
   dateDMY: string;
-  constructor() {
+  userName: object;
+  constructor(public userDataService: UserDataService) {
     this.date = new Date();
     this.dateDMY = this.date.toDateString();
+    this.userName = userDataService.userLogged.email;
    }
 
   ngOnInit() {
