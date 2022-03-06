@@ -7,11 +7,12 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  logged: boolean; //If the user login
 
   constructor(private router: Router) {
-    this.logged = false;
-    if (this.logged) {
+    //Get the info of that element in localStorage, if it doesn't exist, it returns null
+    const USER_INFO = JSON.parse(localStorage.getItem('userCovidUta'));
+
+    if (USER_INFO) {
       this.router.navigate(['']);
     } else {
       this.router.navigate(['login']);

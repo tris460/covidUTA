@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img src="../../assets/profile-picture-default.png"></ion-img>
+  <ion-text>
+    <h5>Name</h5>
+    <!-- <h2>{{name}}</h2> -->
+    <h5>ID</h5>
+    <!-- <h2>{{id}}</h2> -->
+    <h5>Status</h5>
+    <!-- <h2>{{status}}</h2> -->
+    <ion-button (click)="logout()">
+      <ion-label>Logout</ion-label>
+      <ion-icon name="log-out"></ion-icon>
+    </ion-button>
+  </ion-text>
+</ion-content>
