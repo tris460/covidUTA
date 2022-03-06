@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('../user/user.module').then( m => m.UserPageModule)
       },
       {
+        path: 'history',
+        loadChildren: () => import('../history/history.module').then( m => m.HistoryPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/user',
         pathMatch: 'full'
