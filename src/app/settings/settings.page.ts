@@ -9,9 +9,13 @@ import { UserDataService } from '../services/user-data.service';
 })
 export class SettingsPage implements OnInit {
   userName: string;
+  logo: string;
+  background: string;
 
   constructor(private router: Router, public userDataService: UserDataService) {
     this.userName = userDataService.userLogged.email;
+    this.logo = '../../assets/logocovid.png';
+    this.background = '../../assets/background1.jpeg';
    }
 
   ngOnInit() {
