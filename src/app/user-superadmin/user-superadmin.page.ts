@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-superadmin.page.scss'],
 })
 export class UserSuperadminPage implements OnInit {
+  logo: string;
+  background: string;
 
-  constructor() { }
+  constructor() {
+    this.logo = '../../assets/logocovid.png';
+    this.background = '../../assets/background1.jpeg';
+  }
 
   ngOnInit() {
   }

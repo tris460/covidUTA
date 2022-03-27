@@ -1,9 +1,75 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>user-superadmin</ion-title>
+    <ion-img [src]="logo" class="logo float-start"></ion-img>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-img [src]="background">
+  </ion-img>
+  <ion-img [src]="background">
+  </ion-img>`
+  <div class="forms">
+    <!-- Add User -->
+    <ion-card class="add-user">
+      <p class="title">Agregar Usuario</p>
+      <ion-card>
+        <ion-item>
+          <ion-input type="text" placeholder="Rol"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Carrera"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Materia"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" placeholder="Contraseña"></ion-input>
+        </ion-item>
+        <ion-button color="light" class="button">
+          <ion-label>Agregar</ion-label>
+        </ion-button>
+      </ion-card>
+    </ion-card>
+    <!-- Edit User -->
+    <ion-card>
+      <p class="title">Editar Usuario</p>
+      <ion-searchbar placeholder="Buscar..." class="search-bar"></ion-searchbar>
+      <ion-card>
+        <ion-item>
+          <ion-input type="text" placeholder="Rol"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Carrera"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Materia"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" placeholder="Contraseña"></ion-input>
+        </ion-item>
+        <ion-button color="light" class="button">
+          <ion-label>Agregar</ion-label>
+        </ion-button>
+      </ion-card>
+    </ion-card>
+    <!-- Delete User -->
+    <ion-card>
+      <p class="title">Eliminar Usuario</p>
+      <ion-searchbar placeholder="Buscar..." class="search-bar"></ion-searchbar>
+    </ion-card>
+  </div>
 </ion-content>
