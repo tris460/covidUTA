@@ -1,27 +1,36 @@
 ion-title{
     text-align: center;
+    font-family: 'Quicksand', sans-serif;
 }
 ion-button{
-    margin-left: 40%;
+    margin-left: 35%;
+    font-family: 'Quicksand', sans-serif;
+    color: #000;
+    background-color: transparent;
 }
-
+.form {
+  padding: 10px 20px 20px 10px;
+  margin-top: 10%;
+}
 .inputs{
-    width: 80%;
-    margin-left: 10%;
+    font-family: 'Quicksand', sans-serif;
 }
-
 .logo{
-    width: 280px;
-    margin-left: 10%;
+    width: 110px;
+    margin: 20px;
+    margin-top: 20%;
 }
-
 .container{
     height: 90vh;
 }
-
+.button {
+  margin-top: 5%;
+}
 .forgotpass{
-    opacity: 50%;
+    opacity: 70%;
     text-decoration: underline;
-    margin-left: 33%;
+    text-align: center;
     font-size: 80%;
+    font-family: 'Quicksand', sans-serif;
+    margin-top: 35%;
 }
