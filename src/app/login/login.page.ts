@@ -11,11 +11,13 @@ export class LoginPage implements OnInit {
   email: string;
   password: string;
   correctCredentials: boolean;
+  background: string;
 
   constructor(private router: Router, public alert: AlertController) {
     this.email = '';
     this.password = '';
     this.correctCredentials = false;
+    this.background = '../../assets/background.jpeg';
    }
 
   ngOnInit() {

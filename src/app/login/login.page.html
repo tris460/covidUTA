@@ -5,7 +5,8 @@
 </ion-header>
 
 <ion-content class="container">
-  <ion-img src="../../assets/logocovid.png" class="logo mx-auto d-block"></ion-img>
+  <ion-img [src]="background"></ion-img>
+  <ion-img src="../../assets/logocovid.png" class="logo"></ion-img>
 
   <ion-card class="form">
     <ion-item>
@@ -19,9 +20,7 @@
   <ion-button (click)="login()" class="button" color="light">
     <ion-label>Iniciar Sesión</ion-label>
   </ion-button>
-  <ion-item>
-    <ion-label class="forgotpass" (click)="showAlert('Información', 'Contacta a tu universidad para recuperar tu cuenta: 449-910-5000', ['Ok'])">
-      ¿Olvidaste tu contraseña?
-    </ion-label>
-  </ion-item>
+  <ion-label class="forgotpass" (click)="showAlert('Información', 'Contacta a tu universidad para recuperar tu cuenta: 449-910-5000', ['Ok'])">
+    ¿Olvidaste tu contraseña?
+  </ion-label>
 </ion-content>
