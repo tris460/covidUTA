@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
       localStorage.setItem('userCovidUta', JSON.stringify(USER_INFO)); //Save data in localStorage, it only receives string
       this.router.navigate(['tabs', 'user']);
     } else {
-      this.showAlert('Error', 'Incorrect password or email', ['OK']);
+      this.showAlert('Error', 'Correo o contraseña incorrecta.', ['OK']);
     }
   }
   async showAlert(headerA, messageA, button) {
