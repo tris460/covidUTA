@@ -1,45 +1,57 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Home</ion-title>
+    <ion-img [src]="logo" class="logo float-start"></ion-img>
+    <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <p>Welcome {{userName}}!</p>
-  </ion-item>
-  <ion-item (click)="showForm = !showForm">
-    <ion-icon name="add-circle-outline"></ion-icon>
-    <ion-label>New</ion-label>
-  </ion-item>
-  <ion-item *ngIf="showForm">
-    <table>
-      <td>
+  <ion-img [src]="background">
+  </ion-img>
+  <p class="welcome">Welcome {{userName}}!</p>
+  <ion-card class="form">
+    <p class="form-title">Nuevo Registro</p>
+    <ion-item>
+      <table>
+        <td>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Fecha</ion-label>
+              <p>{{dateDMY}}</p>
+            </ion-item>
+          </tr>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Enfermedad</ion-label>
+              <ion-input [(ngModel)]="illness"></ion-input>
+              </ion-item>
+          </tr>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Síntomas</ion-label>
+              <ion-input [(ngModel)]="symptoms"></ion-input>
+            </ion-item>
+          </tr>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Estatus</ion-label>
+              <ion-input [(ngModel)]="status"></ion-input>
+            </ion-item>
+          </tr>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Notas</ion-label>
+              <ion-input [(ngModel)]="notes"></ion-input>
+            </ion-item>
+          </tr>
+        </td>
         <tr>
-          <ion-item>
-            <ion-label position="floating">Date</ion-label><br>
-            <p>{{dateDMY}}</p>
-          </ion-item>
-        </tr>
-        <tr>
-          <ion-item>
-            <ion-label position="floating">Symptoms</ion-label><br>
-            <ion-input [(ngModel)]="symptoms"></ion-input>
-          </ion-item>
-        </tr>
-        <tr>
-          <ion-item>
-            <ion-label position="floating">Notes</ion-label><br>
-            <ion-input [(ngModel)]="notes"></ion-input>
-          </ion-item>
-        </tr>
-        <tr>
-          <ion-button (click)="addSymptoms()">
-            <ion-icon name="add-circle-outline"></ion-icon>
-            <ion-label>Add</ion-label>
+          <ion-button (click)="addSymptoms()" color="secondary" class="form-buttom">
+            <ion-label class="button-text">Añadir</ion-label>
           </ion-button>
         </tr>
-      </td>
-    </table>
-  </ion-item>
+      </table>
+    </ion-item>
+  </ion-card>
 </ion-content>
+
