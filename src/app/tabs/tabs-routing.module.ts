@@ -16,8 +16,16 @@ const routes: Routes = [
         loadChildren: () => import('../user/user.module').then( m => m.UserPageModule)
       },
       {
+        path: 'user-superadmin',
+        loadChildren: () => import('../user-superadmin/user-superadmin.module').then( m => m.UserSuperadminPageModule)
+      },
+      {
         path: 'history',
         loadChildren: () => import('../history/history.module').then( m => m.HistoryPageModule)
+      },
+      {
+        path: 'history-superadmin',
+        loadChildren: () => import('../history-superadmin/history-superadmin.module').then( m => m.HistorySuperadminPageModule)
       },
       {
         path: 'api-data',
