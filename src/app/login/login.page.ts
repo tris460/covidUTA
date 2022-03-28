@@ -27,12 +27,12 @@ export class LoginPage implements OnInit {
     if (this.email === 'abc' && this.password === '123') { //If the credentials are correct
       const USER_INFO =  { //Object to save data in local storage
         email: this.email,
-        rol: 'admin'
+        rol: 'superadmin'
       };
       localStorage.setItem('userCovidUta', JSON.stringify(USER_INFO)); //Save data in localStorage, it only receives string
-      this.router.navigate(['tabs', 'user']);
+      this.router.navigate(['']);
     } else {
-      this.showAlert('Error', 'Correo o contraseña incorrecta.', ['OK']);
+      this.showAlert('Error', 'Correo o contraseña incorrecta', ['OK']);
     }
   }
   async showAlert(headerA, messageA, button) {
