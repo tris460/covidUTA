@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-img [src]="logo" class="logo float-start"></ion-img>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img [src]="background">
+  </ion-img>
+  <p class="welcome">Welcome {{userName}}!</p>
+  <ion-card class="form">
+    <ion-icon name="alert-circle" class="info-icon"></ion-icon>
+    <p class="form-title">Nuevos Registros</p>
+    <ion-item>
+      <table>
+        <td>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Fecha:</ion-label>
+            </ion-item>
+          </tr>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Enfermedad:</ion-label>
+              </ion-item>
+          </tr>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Síntomas:</ion-label>
+            </ion-item>
+          </tr>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Estatus:</ion-label>
+            </ion-item>
+          </tr>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Notas:</ion-label>
+            </ion-item><br>
+          </tr>
+        </td>
+        <tr>
+      </table>
+    </ion-item>
+  </ion-card>
+</ion-content>
