@@ -9,10 +9,18 @@ import { ApiConectionService } from '../services/api-conection.service';
 export class ApiDataPage implements OnInit {
   logo: string;
   background: string;
+  totalSick: any;
+  totalDeath: any;
+  data: any;
+  dataArray: any[];
 
   constructor(public api: ApiConectionService) {
     this.logo = '../../assets/logocovid.png';
     this.background = '../../assets/background1.jpeg';
+    this.totalSick = 'Cargando...';
+    this.totalDeath = 'Cargando...';
+    this.data = '';
+    this.dataArray = [];
     this.get();
   }
 
@@ -20,7 +28,16 @@ export class ApiDataPage implements OnInit {
   }
   get() {
     setTimeout(() => {
-      console.log(this.api.information.rawData);
+      this.totalSick = this.api.information.summaryStats.global.confirmed;
+      this.totalDeath = this.api.information.summaryStats.global.deaths;
+      this.data = this.api.information.rawData;
+      for (const i of this.data) {
+        this.dataArray.push({
+          country: i.Country_Region,
+          sick: i.Confirmed,
+          death: i.Deaths
+        });
+      }
     }, 10000);
   }
 }

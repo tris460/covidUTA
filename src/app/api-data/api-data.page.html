@@ -9,6 +9,29 @@
   <ion-img [src]="background">
   </ion-img>
   <ion-card class="data">
-    <p>Información de la API</p>
+    <p><b>Total de enfermos de COVID:</b></p>
+    <p>{{this.totalSick}}</p>
+    <p><b>Total de muertos por COVID:</b></p>
+    <p>{{this.totalDeath}}</p>
+  </ion-card>
+  <ion-card class="data-api">
+    <table>
+      <td>
+        <tr>
+          <ion-item>
+            <ion-label position="fixed"><b>País</b></ion-label>
+            <ion-label position="fixed"><b>Enfermos</b></ion-label>
+            <ion-label position="fixed"><b>Muertos</b></ion-label>
+          </ion-item>
+        </tr>
+        <tr>
+          <ion-item *ngFor="let p of dataArray">
+            <ion-label position="fixed">{{p.country}}</ion-label>
+            <ion-label position="fixed">{{p.sick}}</ion-label>
+            <ion-label position="fixed">{{p.death}}</ion-label>
+          </ion-item>
+        </tr>
+      </td>
+    </table>
   </ion-card>
 </ion-content>
