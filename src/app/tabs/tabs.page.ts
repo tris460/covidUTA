@@ -11,8 +11,6 @@ export class TabsPage {
   constructor() {
     this.tipo = JSON.parse(localStorage.getItem('userCovidUta'));
     this.tipo = this.tipo.rol;
-    console.log(this.tipo);
-    console.log(typeof this.tipo);
   }
 
 }

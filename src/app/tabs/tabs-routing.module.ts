@@ -16,12 +16,20 @@ const routes: Routes = [
         loadChildren: () => import('../user/user.module').then( m => m.UserPageModule)
       },
       {
+        path: 'user-admin',
+        loadChildren: () => import('../user-admin/user-admin.module').then( m => m.UserAdminPageModule)
+      },
+      {
         path: 'user-superadmin',
         loadChildren: () => import('../user-superadmin/user-superadmin.module').then( m => m.UserSuperadminPageModule)
       },
       {
         path: 'history',
         loadChildren: () => import('../history/history.module').then( m => m.HistoryPageModule)
+      },
+      {
+        path: 'history-admin',
+        loadChildren: () => import('../history-admin/history-admin.module').then( m => m.HistoryAdminPageModule)
       },
       {
         path: 'history-superadmin',
