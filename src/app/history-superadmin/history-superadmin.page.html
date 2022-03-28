@@ -1,11 +1,23 @@
 <ion-header>
   <ion-toolbar>
     <ion-img [src]="logo" class="logo float-start"></ion-img>
-    <ion-title>history-superadmin</ion-title>
+    <ion-title>Historial</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-img [src]="background">
   </ion-img>
+  <ion-searchbar placeholder="Buscar..." class="search-bar"></ion-searchbar>
+  <ion-select placeholder="Maestros" class="select-m">
+    <ion-select-option value="m1">Maestro1</ion-select-option>
+    <ion-select-option value="m2">Maestro2</ion-select-option>
+  </ion-select>
+  <ion-select placeholder="Alumnos" class="select-a">
+    <ion-select-option value="a1">Alumno1</ion-select-option>
+    <ion-select-option value="a2">Alumno2</ion-select-option>
+  </ion-select>
+  <ion-card class="info">
+    <p class="info-no-user">Seleccione un usuario para continuar.</p>
+  </ion-card>
 </ion-content>
