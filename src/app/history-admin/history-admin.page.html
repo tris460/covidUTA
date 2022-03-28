@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>history-admin</ion-title>
+    <ion-img [src]="logo" class="logo float-start"></ion-img>
+    <ion-title>Historial</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-img [src]="background">
+  </ion-img>
+  <ion-searchbar placeholder="Buscar..." class="search-bar"></ion-searchbar>
+  <ion-select placeholder="Registros" class="select">
+    <ion-select-option value="r1">Registro1</ion-select-option>
+    <ion-select-option value="r2">Registro2</ion-select-option>
+  </ion-select>
+  <ion-card class="info">
+    <p class="info-no-data">Seleccione un registro para continuar.</p>
+  </ion-card>
 </ion-content>

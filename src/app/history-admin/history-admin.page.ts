@@ -6,9 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./history-admin.page.scss'],
 })
 export class HistoryAdminPage implements OnInit {
+  background: string;
+  logo: string;
 
-  constructor() { }
-
+  constructor() {
+    this.logo = '../../assets/logocovid.png';
+    this.background = '../../assets/background1.jpeg';
+   }
   ngOnInit() {
   }
 
