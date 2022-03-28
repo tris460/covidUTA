@@ -16,5 +16,4 @@ export class UserAdminPage implements OnInit {
 
   ngOnInit() {
   }
-
 }
