@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiIllnessService } from '../services/api-illness.service';
 
 @Component({
   selector: 'app-history',
@@ -9,11 +10,14 @@ export class HistoryPage implements OnInit {
   background: string;
   logo: string;
 
-  constructor() {
+  constructor(private apiIllness: ApiIllnessService) {
     this.logo = '../../assets/logocovid.png';
     this.background = '../../assets/background1.jpeg';
-   }
-
+  }
+  getData() {
+    console.log('Click');
+    this.apiIllness.getData();
+  }
   ngOnInit() {
   }
 
