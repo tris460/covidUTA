@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiConectionService {
+export class ApiConnectionService {
   information: any;
   urlApi: string;
 

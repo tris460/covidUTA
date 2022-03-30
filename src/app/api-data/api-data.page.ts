@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiConectionService } from '../services/api-conection.service';
+import { ApiConnectionService } from '../services/api-covid-connection.service';
 
 @Component({
   selector: 'app-api-data',
@@ -14,7 +14,7 @@ export class ApiDataPage implements OnInit {
   data: any;
   dataArray: any[];
 
-  constructor(public api: ApiConectionService) {
+  constructor(public api: ApiConnectionService) {
     this.logo = '../../assets/logocovid.png';
     this.background = '../../assets/background1.jpeg';
     this.totalSick = 'Cargando...';
