@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { ApiUserService } from '../services/api-user.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginPage implements OnInit {
   correctCredentials: boolean;
   background: string;
 
-  constructor(private router: Router, public alert: AlertController) {
+  constructor(private router: Router, public alert: AlertController, private apiUser: ApiUserService) {
     this.email = '';
     this.password = '';
     this.correctCredentials = false;
@@ -24,6 +25,7 @@ export class LoginPage implements OnInit {
   }
 
   login() {
+    this.apiUser.getData();
     if (this.email === 'abc' && this.password === '123') { //If the credentials are correct
       const USER_INFO =  { //Object to save data in local storage
         email: this.email,
