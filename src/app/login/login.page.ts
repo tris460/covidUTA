@@ -13,24 +13,29 @@ export class LoginPage implements OnInit {
   password: string;
   correctCredentials: boolean;
   background: string;
+  userReported: any;
 
   constructor(private router: Router, public alert: AlertController, private apiUser: ApiUserService) {
     this.email = '';
     this.password = '';
     this.correctCredentials = false;
     this.background = '../../assets/background.jpeg';
-   }
-
-  ngOnInit() {
   }
 
+  ngOnInit() { }
+
   login() {
-    this.apiUser.getData();
-    if (this.email === 'abc' && this.password === '123') { //If the credentials are correct
+    this.userReported = this.apiUser.getData();
+    const correctUser = this.userReported.filter(u => // If the credentials are registered in the BD
+      u.strEmail === this.email && u.strPassword === this.password);
+
+    if (correctUser.length > 0) {
+      console.log(correctUser);
       const USER_INFO =  { //Object to save data in local storage
         email: this.email,
-        rol: 'user'
+        rol: correctUser.strRol
       };
+
       localStorage.setItem('userCovidUta', JSON.stringify(USER_INFO)); //Save data in localStorage, it only receives string
       this.router.navigate(['']);
     } else {
