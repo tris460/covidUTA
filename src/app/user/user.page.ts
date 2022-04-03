@@ -38,11 +38,12 @@ export class UserPage implements OnInit {
     if(this.illness !== '' && this.symptoms !== '' && this.status !== '') {
       // If the fields aren't empty save the data in the DB
       const NEW_SYMPTOMS = {
-        date: this.date,
-        illness: this.illness,
-        symptoms: this.symptoms,
-        status: this.status,
-        notes: this.notes,
+        idUser: this.userName,
+        datDate: this.date,
+        strName: this.illness,
+        arrSymptoms: this.symptoms,
+        intStatus: this.status,
+        strNotes: this.notes,
       };
     } else {
       // If the user doesn't fill the fields
@@ -50,7 +51,7 @@ export class UserPage implements OnInit {
     }
   }
   //Show Alert
-  async showAlert(headerA, messageA, button) {
+  async showAlert(headerA: string, messageA: string, button: Array<string>) {
     const addAlert = await this.alert.create({
       header: headerA,
       message: messageA,
