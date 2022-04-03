@@ -8,43 +8,44 @@
 <ion-content>
   <ion-img [src]="background" class="background">
   </ion-img>
-  <ion-button (click)="getData()" style="margin-top: 100%;">CLick</ion-button>
   <ion-searchbar placeholder="Buscar..." class="search-bar"></ion-searchbar>
-  <p class="without-register">No hay registros de enfermedades.</p>
-  <ion-card class="data">
+  <p class="without-register" *ngIf="illnessData.length === 0">No hay registros de enfermedades.</p>
+  <div class="margin">
+  <ion-card class="data" *ngFor="let ill of illnessData">
     <table>
       <td>
         <tr>
           <ion-item>
             <ion-label position="fixed">Fecha</ion-label>
-            <p>Date</p>
+            <p>{{ill.strDate.slice(0,10)}}</p>
         </ion-item>
         </tr>
         <tr>
           <ion-item>
             <ion-label position="fixed">Enfermedad</ion-label>
-            <p>Illness</p>
+            <p>{{ill.strName}}</p>
             </ion-item>
         </tr>
         <tr>
           <ion-item>
             <ion-label position="fixed">Síntomas</ion-label>
-            <p>Symptoms</p>
+            <p>{{ill.arrSymptoms}}</p>
           </ion-item>
         </tr>
         <tr>
           <ion-item>
             <ion-label position="fixed">Estatus</ion-label>
-            <p>Status</p>
+            <p>{{ill.intStatus}}</p>
           </ion-item>
         </tr>
         <tr>
           <ion-item>
             <ion-label position="fixed">Notas</ion-label>
-            <p>Notes</p>
+            <p>{{ill.strNotes}}</p>
           </ion-item>
         </tr>
       </td>
     </table>
   </ion-card>
+  </div>
 </ion-content>

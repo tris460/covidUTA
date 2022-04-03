@@ -11,10 +11,11 @@ p {
   font-family: 'Quicksand', sans-serif;
 }
 .data {
-  position: absolute;
-  top: 10%;
   padding: 10px;
   width: 90%;
+}
+.margin ion-card:first-child {
+   margin-top: 15%;
 }
 .without-register {
   position: absolute;
