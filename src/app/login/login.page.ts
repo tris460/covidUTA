@@ -27,11 +27,11 @@ export class LoginPage implements OnInit {
   login() {
     this.userReported = this.apiUser.information;
     const correctUser = this.userReported.filter(u => // If the credentials are registered in the BD
-      u.tEmail === this.email && u.tContraseña === this.password);
+      u.strEmail === this.email && u.strPassword === this.password);
 
     if (correctUser.length > 0) {
       const USER_INFO =  { //Object to save data in local storage
-        rol: correctUser[0].tRol,
+        rol: correctUser[0].strRol,
         email: this.email,
       };
 
