@@ -17,7 +17,6 @@ export class ApiUserService {
     .subscribe(
       res => {
         this.information = res;
-        console.log(this.information);
       },
       err => {
         console.error(err);

@@ -25,15 +25,14 @@ export class LoginPage implements OnInit {
   ngOnInit() { }
 
   login() {
-    this.userReported = this.apiUser.getData();
+    this.userReported = this.apiUser.information;
     const correctUser = this.userReported.filter(u => // If the credentials are registered in the BD
-      u.strEmail === this.email && u.strPassword === this.password);
+      u.tEmail === this.email && u.tContraseña === this.password);
 
     if (correctUser.length > 0) {
-      console.log(correctUser);
       const USER_INFO =  { //Object to save data in local storage
+        rol: correctUser[0].tRol,
         email: this.email,
-        rol: correctUser.strRol
       };
 
       localStorage.setItem('userCovidUta', JSON.stringify(USER_INFO)); //Save data in localStorage, it only receives string
