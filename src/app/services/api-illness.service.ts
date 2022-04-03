@@ -12,12 +12,21 @@ export class ApiIllnessService {
     this.urlApi = 'http://localhost:3000/api/illness/';
     this.getData();
   }
-  getData() {
+  getData() { // Get the illnesses registered in the DB
     this.http.get(this.urlApi)
     .subscribe(
       res => {
         this.information = res;
-        console.log(this.information);
+      },
+      err => {
+        console.error(err);
+      }
+    );
+  }
+  saveData(data: object) { // Save a new illness in the DB
+    this.http.post(this.urlApi, data).subscribe(
+      res => {
+        this.getData();
       },
       err => {
         console.error(err);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserDataService } from '../services/user-data.service';
 import { AlertController } from '@ionic/angular';
+import { ApiIllnessService } from '../services/api-illness.service';
 
 @Component({
   selector: 'app-user',
@@ -18,7 +19,7 @@ export class UserPage implements OnInit {
   logo: string;
   background: string;
 
-  constructor(public userDataService: UserDataService, public alert: AlertController) {
+  constructor(public userDataService: UserDataService, public alert: AlertController, private apiIllness: ApiIllnessService) {
     this.date = new Date();
     this.dateDMY = this.date.toDateString();
     this.userName = userDataService.userLogged.email;
@@ -39,12 +40,15 @@ export class UserPage implements OnInit {
       // If the fields aren't empty save the data in the DB
       const NEW_SYMPTOMS = {
         idUser: this.userName,
-        datDate: this.date,
+        strDate: this.dateDMY,
         strName: this.illness,
         arrSymptoms: this.symptoms,
         intStatus: this.status,
         strNotes: this.notes,
       };
+      this.apiIllness.saveData(NEW_SYMPTOMS);
+      this.showAlert('Éxito', 'Guardado correctamente.', ['OK']);
+      this.clearForm();
     } else {
       // If the user doesn't fill the fields
       this.showAlert('Error', 'Debes llenar todos los campos.', ['OK']);
@@ -58,5 +62,13 @@ export class UserPage implements OnInit {
       buttons: button
     });
     await addAlert.present();
+  }
+  //Clear the fields
+  clearForm() {
+    this.dateDMY = this.date.toDateString();
+    this.symptoms = '';
+    this.illness = '';
+    this.status = '';
+    this.notes = '';
   }
 }
