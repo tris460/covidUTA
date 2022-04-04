@@ -8,8 +8,8 @@
 <ion-content>
   <ion-img [src]="background" class="background">
   </ion-img>
-  <p class="without-register">No hay registros de enfermedades del día de hoy.</p>
-  <ion-card class="new">
+  <p class="without-register" *ngIf="apiInfo.length === 0">No hay registros de enfermedades del día de hoy.</p>
+  <ion-card class="new" *ngIf="apiInfo.length > 0 ">
     <p class="title">Nuevos registros</p>
     <ion-card>
       <table>
