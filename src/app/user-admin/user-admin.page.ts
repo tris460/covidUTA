@@ -10,14 +10,17 @@ export class UserAdminPage implements OnInit {
   logo: string;
   background: string;
 
-  constructor(private illApi: ApiIllnessService) {
+  constructor(private apiIllness: ApiIllnessService) {
     this.logo = '../../assets/logocovid.png';
     this.background = '../../assets/background1.jpeg';
-    this.getIllnesses();
+    //this.getIllnesses();
   }
   getIllnesses() { // Get the illnesses of the current day
-    console.log(this.illApi.information);
+    setTimeout(() => {
+      console.log(this.apiIllness.information);
+    }, 50);
   }
   ngOnInit() {
+    this.getIllnesses();
   }
 }
