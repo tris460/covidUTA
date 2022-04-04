@@ -22,7 +22,6 @@ export class UserAdminPage implements OnInit {
     setTimeout(() => {
       this.apiInfo = this.apiIllness.information;
       this.lastRegisters =  this.apiInfo.slice(this.apiInfo.length-5);
-      console.log(this.lastRegisters);
     }, 50);
   }
   ngOnInit() {
