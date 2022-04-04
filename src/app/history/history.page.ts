@@ -34,10 +34,6 @@ export class HistoryPage implements OnInit {
     this.illnessData = this.illnessData.filter(u =>
       u.idUser === this.userName);
   }
-  getData() {
-    console.log('Click');
-    this.apiIllness.getData();
-  }
   ngOnInit() {
   }
 
