@@ -9,8 +9,9 @@
   <ion-img [src]="background" class="background">
   </ion-img>
   <ion-select placeholder="Registros" class="select">
-    <ion-select-option value="r1">Registro1</ion-select-option>
-    <ion-select-option value="r2">Registro2</ion-select-option>
+    <ion-select-option *ngFor="let ill of illness; let i=index" value={{i}}>
+      <p>{{ill.strName}} - Estatus: {{ill.intStatus}}</p><br>
+    </ion-select-option>
   </ion-select>
   <ion-card class="info">
     <p class="info-no-data">Seleccione un registro para continuar.</p>
