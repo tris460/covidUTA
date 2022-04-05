@@ -11,19 +11,44 @@
   <div class="forms">
     <!-- Add User -->
     <ion-card class="add-user">
-      <p class="title">Agregar Usuario</p>
-      <ion-card>
+      <p class="title" (click)="showFormAdd = !showFormAdd">Agregar Usuario</p>
+      <ion-card *ngIf="showFormAdd">
         <ion-item>
-          <ion-input type="text" placeholder="Rol"></ion-input>
+          <ion-select placeholder="Rol" (ionChange)="getRol($event)">
+            <ion-select-option value="user">Usuario</ion-select-option>
+            <ion-select-option value="admin">Administrador</ion-select-option>
+            <ion-select-option value="superadmin">Super administrador</ion-select-option>
+          </ion-select>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Nombre"></ion-input>
+          <ion-input type="number" placeholder="Matrícula"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Nombre(s)"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Apellido Paterno"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Apellido Materno"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="number" placeholder="Edad"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Alergias"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Enfermedades Previas"></ion-input>
         </ion-item>
         <ion-item>
           <ion-input type="text" placeholder="Carrera"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Materia"></ion-input>
+          <ion-input type="number" placeholder="Grado"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Grupo"></ion-input>
         </ion-item>
         <ion-item>
           <ion-input type="text" placeholder="Email"></ion-input>
@@ -37,10 +62,10 @@
       </ion-card>
     </ion-card>
     <!-- Edit User -->
-    <ion-card>
-      <p class="title">Editar Usuario</p>
-      <ion-searchbar placeholder="Buscar..." class="search-bar"></ion-searchbar>
-      <ion-card>
+    <ion-card class="add-user">
+      <p class="title" (click)="showFormEdit = !showFormEdit">Editar Usuario</p>
+      <ion-card *ngIf="showFormEdit">
+        <ion-searchbar placeholder="Buscar..." class="search-bar"></ion-searchbar>
         <ion-item>
           <ion-input type="text" placeholder="Rol"></ion-input>
         </ion-item>
@@ -65,9 +90,9 @@
       </ion-card>
     </ion-card>
     <!-- Delete User -->
-    <ion-card>
-      <p class="title">Eliminar Usuario</p>
-      <ion-searchbar placeholder="Buscar..." class="search-bar"></ion-searchbar>
+    <ion-card class="add-user">
+      <p class="title" (click)="showFormDelete = !showFormDelete">Eliminar Usuario</p>
+      <ion-searchbar placeholder="Buscar..." class="search-bar" *ngIf="showFormDelete"></ion-searchbar>
     </ion-card>
   </div>
 </ion-content>
