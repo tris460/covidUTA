@@ -23,4 +23,15 @@ export class ApiUserService {
       }
     );
   }
+  saveUser(user) {
+    this.http.post(this.urlApi, user)
+    .subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.error(err);
+      }
+    );
+  }
 }
