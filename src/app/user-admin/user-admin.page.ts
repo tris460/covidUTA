@@ -21,7 +21,9 @@ export class UserAdminPage implements OnInit {
   getIllnesses() { // Get the illnesses of the current day
     setTimeout(() => {
       this.apiInfo = this.apiIllness.information;
-      this.lastRegisters =  this.apiInfo.slice(this.apiInfo.length-5);
+      if(this.apiInfo.length > 0) {
+        this.lastRegisters =  this.apiInfo.slice(this.apiInfo.length-5);
+      }
     }, 50);
   }
   ngOnInit() {
