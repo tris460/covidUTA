@@ -8,7 +8,7 @@
 <ion-content>
   <ion-img [src]="background" class="background">
   </ion-img>
-  <ion-select placeholder="Registros" class="select">
+  <ion-select placeholder="Registros" class="select" (ionChange)="showData($event)">
     <ion-select-option *ngFor="let ill of illness; let i=index" value={{i}}>
       <p>{{ill.strName}} - Estatus: {{ill.intStatus}}</p><br>
     </ion-select-option>

@@ -21,6 +21,9 @@ export class HistoryAdminPage implements OnInit {
       this.illness = this.apiIllness.information;
     }, 50);
    }
+   showData($event) {
+     console.log($event.target.value);
+   }
   ngOnInit() {
   }
 
