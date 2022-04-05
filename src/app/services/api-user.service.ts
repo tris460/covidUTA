@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class ApiUserService {
   urlApi: string;
   information: any;
+  userInformation: any;
 
   constructor(private http: HttpClient) {
     this.urlApi = 'http://localhost:3000/api/users';
@@ -39,6 +40,18 @@ export class ApiUserService {
     .subscribe(
       res => {
         console.log(res);
+      },
+      err => {
+        console.error(err);
+      }
+    );
+  }
+  getOneUser(id) {
+    this.http.get(`${this.urlApi}/${id}`)
+    .subscribe(
+      res => {
+        console.log(res);
+        this.userInformation = res;
       },
       err => {
         console.error(err);

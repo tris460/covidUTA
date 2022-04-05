@@ -26,6 +26,7 @@ export class UserSuperadminPage implements OnInit {
   groupUser: string;
   emailUser: string;
   passwordUser: string;
+  undefinedUser: boolean;
 
   constructor(public alert: AlertController, private apiUser: ApiUserService) {
     this.logo = '../../assets/logocovid.png';
@@ -43,6 +44,7 @@ export class UserSuperadminPage implements OnInit {
     this.groupUser= '';
     this.emailUser= '';
     this.passwordUser= '';
+    this.undefinedUser = false;
   }
   getRol($event) { // Get the rol selected
     this.rolUser = $event.target.value;
@@ -76,6 +78,16 @@ export class UserSuperadminPage implements OnInit {
       this.clearForm();
     } else {
       this.showAlert('¡Error!', 'Asegurate de completar correctamente los campos.', ['OK']);
+    }
+  }
+  searchUser($event) { //Search by user and show the information
+    const id = $event.target.value;
+    this.apiUser.getOneUser(id);
+    const infoUser = this.apiUser.userInformation;
+    if(infoUser === undefined) {
+      this.undefinedUser = true;
+    } else {
+      this.undefinedUser = false;
     }
   }
   async showAlert(headerA, messageA, button) { // Show an alert
