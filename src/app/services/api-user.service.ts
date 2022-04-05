@@ -34,4 +34,15 @@ export class ApiUserService {
       }
     );
   }
+  editUser(id, data) {
+    this.http.put(`${this.urlApi}/${id}`, data)
+    .subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.error(err);
+      }
+    );
+  }
 }
