@@ -10,10 +10,44 @@
   </ion-img>
   <ion-select placeholder="Registros" class="select" (ionChange)="showData($event)">
     <ion-select-option *ngFor="let ill of illness; let i=index" value={{i}}>
-      <p>{{ill.strName}} - Estatus: {{ill.intStatus}}</p><br>
+      <p>{{ill.idUser.slice(0,6)}} - Estatus: {{ill.intStatus}}</p><br>
     </ion-select-option>
   </ion-select>
   <ion-card class="info">
-    <p class="info-no-data">Seleccione un registro para continuar.</p>
+    <p class="info-no-data" *ngIf="data === undefined">Seleccione un registro para continuar.</p>
+    <table *ngIf="data !== undefined">
+      <td>
+        <tr>
+          <ion-item>
+            <ion-label position="fixed">Fecha</ion-label>
+            <p>{{dateData}}</p>
+        </ion-item>
+        </tr>
+        <tr>
+          <ion-item>
+            <ion-label position="fixed">Enfermedad</ion-label>
+            <p>{{illnessData}}</p>
+            </ion-item>
+        </tr>
+        <tr>
+          <ion-item>
+            <ion-label position="fixed">Síntomas</ion-label>
+            <p>{{symptomsData}}</p>
+          </ion-item>
+        </tr>
+        <tr>
+          <ion-item>
+            <ion-label position="fixed">Estatus</ion-label>
+            <p>{{statusData}}</p>
+          </ion-item>
+        </tr>
+        <tr>
+          <ion-item>
+            <ion-label position="fixed">Notas</ion-label>
+            <p>{{notesData}}</p>
+          </ion-item>
+        </tr>
+      </td>
+    </table>
   </ion-card>
 </ion-content>
