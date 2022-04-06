@@ -111,6 +111,15 @@ export class UserSuperadminPage implements OnInit {
       chaGroup: this.groupUserEd
     };
     this.apiUser.editUser(this.idToEdit, this.dataEditUser);
+    setTimeout(() => {
+      const status = this.apiUser.userUpdated.status;
+      if(status === 'User updated') {
+        this.showAlert('¡Éxito!', 'Usuario actualizado correctamente.', ['OK']);
+        this.existentUser = false;
+      } else {
+        this.showAlert('¡Error!', 'Asegurate de completar correctamente los campos.', ['OK']);
+      }
+    }, 50);
   }
   searchUser($event) { //Search by user and show the information
     this.idToEdit = $event.target.value;

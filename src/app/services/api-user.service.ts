@@ -8,6 +8,7 @@ export class ApiUserService {
   urlApi: string;
   information: any;
   userInformation: any;
+  userUpdated: any;
 
   constructor(private http: HttpClient) {
     this.urlApi = 'http://localhost:3000/api/users';
@@ -39,7 +40,7 @@ export class ApiUserService {
     this.http.put(`${this.urlApi}/${id}`, data)
     .subscribe(
       res => {
-        console.log(res);
+        this.userUpdated = res;
       },
       err => {
         console.error(err);
