@@ -8,11 +8,11 @@
 <ion-content>
   <ion-img [src]="background" class="background">
   </ion-img>
-  <ion-select placeholder="Maestros" class="select-m" (ionChange)="getAdmin($event)">
+  <ion-select placeholder="Maestros" class="select-m" (ionChange)="getUser($event)">
     <ion-select-option *ngFor="let a of admins" value={{a._id}}>{{a.strName}} {{a.strLastName}}</ion-select-option>
   </ion-select>
   <ion-select placeholder="Alumnos" class="select-a" (ionChange)="getUser($event)">
-    <ion-select-option value="a1">Alumno1</ion-select-option>
+    <ion-select-option *ngFor="let u of users" value={{u._id}}>{{u.strName}} {{u.strLastName}}</ion-select-option>
   </ion-select>
   <ion-card class="info">
     <p class="info-no-user">Seleccione un usuario para continuar.</p>
