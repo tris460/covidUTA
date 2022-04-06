@@ -39,6 +39,8 @@ export class UserSuperadminPage implements OnInit {
   passwordUser: string;
   passUserEd: string;
   existentUser: boolean;
+  dataEditUser: any;
+  idToEdit: any;
 
   constructor(public alert: AlertController, private apiUser: ApiUserService) {
     this.logo = '../../assets/logocovid.png';
@@ -92,10 +94,28 @@ export class UserSuperadminPage implements OnInit {
       this.showAlert('¡Error!', 'Asegurate de completar correctamente los campos.', ['OK']);
     }
   }
+  editUser() { //Edit the user
+    this.dataEditUser = { // Generate the object for the edited user
+      _id: this.idUserEd,
+      strRol: this.rolUser,
+      strEmail: this.emailUserEd,
+      strPassword: this.passUserEd,
+      strName: this.nameUserEd,
+      strLastName:this.lastNameUserEd,
+      strSecondLastName: this.secLastNameUserEd,
+      intAge: this.ageUserEd,
+      arrAllergies: this.allergiesUserEd,
+      arrPreviousIllnesses: this.prevIllUserEd,
+      strCareer: this.careerUserEd,
+      intGrade: this.gradeUserEd,
+      chaGroup: this.groupUserEd
+    };
+    this.apiUser.editUser(this.idToEdit, this.dataEditUser);
+  }
   searchUser($event) { //Search by user and show the information
-    const id = $event.target.value;
+    this.idToEdit = $event.target.value;
     let infoUser;
-    this.apiUser.getOneUser(id);
+    this.apiUser.getOneUser(this.idToEdit);
     setTimeout(() => {
       infoUser = this.apiUser.userInformation;
       if(infoUser !== null) { // Show the data in the html

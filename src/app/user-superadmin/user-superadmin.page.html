@@ -82,54 +82,50 @@
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-label position="stacked">Matrícula</ion-label>
-          <ion-input type="number">{{idUserEd}}</ion-input>
-        </ion-item>
-        <ion-item>
           <ion-label position="stacked">Nombre</ion-label>
-          <ion-input type="text">{{nameUserEd}}</ion-input>
+          <ion-input type="text" [(ngModel)]="nameUserEd"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Apellido Paterno</ion-label>
-          <ion-input type="text">{{lastNameUserEd}}</ion-input>
+          <ion-input type="text" [(ngModel)]="lastNameUserEd"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Apellido Materno</ion-label>
-          <ion-input type="text">{{secLastNameUserEd}}</ion-input>
+          <ion-input type="text" [(ngModel)]="secLastNameUserEd"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Carrera</ion-label>
-          <ion-input type="text">{{careerUserEd}}</ion-input>
+          <ion-input type="text" [(ngModel)]="careerUserEd"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Grado</ion-label>
-          <ion-input type="number">{{gradeUserEd}}</ion-input>
+          <ion-input type="number" [(ngModel)]="gradeUserEd"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Grupo</ion-label>
-          <ion-input type="text">{{groupUserEd}}</ion-input>
+          <ion-input type="text" [(ngModel)]="groupUserEd"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Edad</ion-label>
-          <ion-input type="number">{{ageUserEd}}</ion-input>
+          <ion-input type="number" [(ngModel)]="ageUserEd"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Alergias</ion-label>
-          <ion-input type="text">{{allergiesUserEd}}</ion-input>
+          <ion-input type="text" [(ngModel)]="allergiesUserEd"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Enfermedades Previas</ion-label>
-          <ion-input type="text">{{prevIllUserEd}}</ion-input>
+          <ion-input type="text" [(ngModel)]="prevIllUserEd"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Email</ion-label>
-          <ion-input type="text">{{emailUserEd}}</ion-input>
+          <ion-input type="text" [(ngModel)]="emailUserEd"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Contraseña</ion-label>
-          <ion-input type="password">{{passUserEd}}</ion-input>
+          <ion-input type="password" [(ngModel)]="passUserEd"></ion-input>
         </ion-item>
-        <ion-button color="light" class="button">
+        <ion-button color="light" class="button" (click)="editUser()">
           <ion-label>Aceptar</ion-label>
         </ion-button>
       </div>
