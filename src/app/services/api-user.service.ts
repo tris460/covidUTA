@@ -47,10 +47,10 @@ export class ApiUserService {
     );
   }
   getOneUser(id) {
+    this.userInformation = '';
     this.http.get(`${this.urlApi}/${id}`)
     .subscribe(
       res => {
-        console.log(res);
         this.userInformation = res;
       },
       err => {

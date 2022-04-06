@@ -69,53 +69,65 @@
         placeholder="Buscar por matrícula..."
         class="search-bar"
         (search)="searchUser($event)"></ion-searchbar>
-        <div *ngIf="!undefinedUser">
-          <p>Selecciona un usuario correcto para continuar.</p>
+        <div *ngIf="!existentUser">
+          <p class="info-no-data">Selecciona un usuario correcto para continuar.</p>
         </div>
         <div></div>
-      <div *ngIf="undefinedUser">
+      <div *ngIf="existentUser">
         <ion-item>
-          <ion-select placeholder="Rol*" (ionChange)="getRol($event)">
+          <ion-select placeholder="Rol*" (ionChange)="getRol($event)" value={{rolUser}}>
             <ion-select-option value="user">Usuario</ion-select-option>
             <ion-select-option value="admin">Administrador</ion-select-option>
             <ion-select-option value="superadmin">Super administrador</ion-select-option>
           </ion-select>
         </ion-item>
         <ion-item>
-          <ion-input type="number" placeholder="Matrícula"></ion-input>
+          <ion-label position="stacked">Matrícula</ion-label>
+          <ion-input type="number">{{idUserEd}}</ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Nombre"></ion-input>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input type="text">{{nameUserEd}}</ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Apellido Paterno"></ion-input>
+          <ion-label position="stacked">Apellido Paterno</ion-label>
+          <ion-input type="text">{{lastNameUserEd}}</ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Apellido Materno"></ion-input>
+          <ion-label position="stacked">Apellido Materno</ion-label>
+          <ion-input type="text">{{secLastNameUserEd}}</ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Carrera"></ion-input>
+          <ion-label position="stacked">Carrera</ion-label>
+          <ion-input type="text">{{careerUserEd}}</ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="number" placeholder="Grado"></ion-input>
+          <ion-label position="stacked">Grado</ion-label>
+          <ion-input type="number">{{gradeUserEd}}</ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Grupo"></ion-input>
+          <ion-label position="stacked">Grupo</ion-label>
+          <ion-input type="text">{{groupUserEd}}</ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="number" placeholder="Edad"></ion-input>
+          <ion-label position="stacked">Edad</ion-label>
+          <ion-input type="number">{{ageUserEd}}</ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Alergias"></ion-input>
+          <ion-label position="stacked">Alergias</ion-label>
+          <ion-input type="text">{{allergiesUserEd}}</ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Enfermedades Previas"></ion-input>
+          <ion-label position="stacked">Enfermedades Previas</ion-label>
+          <ion-input type="text">{{prevIllUserEd}}</ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Email"></ion-input>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input type="text">{{emailUserEd}}</ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="password" placeholder="Contraseña"></ion-input>
+          <ion-label position="stacked">Contraseña</ion-label>
+          <ion-input type="password">{{passUserEd}}</ion-input>
         </ion-item>
         <ion-button color="light" class="button">
           <ion-label>Aceptar</ion-label>

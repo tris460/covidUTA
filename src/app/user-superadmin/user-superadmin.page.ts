@@ -15,18 +15,30 @@ export class UserSuperadminPage implements OnInit {
   showFormDelete: boolean;
   rolUser: string;
   idUser: any;
+  idUserEd: any;
   nameUser: string;
+  nameUserEd: string;
   lastNameUser: string;
+  lastNameUserEd: string;
   secondLastNameUser: string;
+  secLastNameUserEd: string;
   ageUser: any;
+  ageUserEd: any;
   allergiesUser: Array<string>;
+  allergiesUserEd: Array<string>;
   previousIllnessUser: Array<string>;
+  prevIllUserEd: Array<string>;
   careerUser: string;
+  careerUserEd: string;
   gradeUser: any;
+  gradeUserEd: any;
   groupUser: string;
+  groupUserEd: string;
   emailUser: string;
+  emailUserEd: string;
   passwordUser: string;
-  undefinedUser: boolean;
+  passUserEd: string;
+  existentUser: boolean;
 
   constructor(public alert: AlertController, private apiUser: ApiUserService) {
     this.logo = '../../assets/logocovid.png';
@@ -44,7 +56,7 @@ export class UserSuperadminPage implements OnInit {
     this.groupUser= '';
     this.emailUser= '';
     this.passwordUser= '';
-    this.undefinedUser = false;
+    this.existentUser = false;
   }
   getRol($event) { // Get the rol selected
     this.rolUser = $event.target.value;
@@ -82,13 +94,43 @@ export class UserSuperadminPage implements OnInit {
   }
   searchUser($event) { //Search by user and show the information
     const id = $event.target.value;
+    let infoUser;
     this.apiUser.getOneUser(id);
-    const infoUser = this.apiUser.userInformation;
-    if(infoUser === undefined) {
-      this.undefinedUser = true;
-    } else {
-      this.undefinedUser = false;
-    }
+    setTimeout(() => {
+      infoUser = this.apiUser.userInformation;
+      if(infoUser !== null) { // Show the data in the html
+        this.existentUser = true;
+        this.rolUser = infoUser.strRol;
+        // eslint-disable-next-line no-underscore-dangle
+        this.idUserEd = infoUser._id;
+        this.nameUserEd = infoUser.strName;
+        this.lastNameUserEd = infoUser.strLastName;
+        this.secLastNameUserEd = infoUser.strSecondLastName;
+        this.careerUserEd = infoUser.strCareer;
+        this.gradeUserEd = infoUser.intGrade;
+        this.groupUserEd = infoUser.chaGroup;
+        this.ageUserEd = infoUser.intAge;
+        this.allergiesUserEd = infoUser.arrAllergies;
+        this.prevIllUserEd = infoUser.arrPreviousIllnesses;
+        this.emailUserEd = infoUser.strEmail;
+        this.passUserEd = infoUser.strPassword;
+      } else {
+        this.existentUser = false;
+        this.rolUser = '';
+        this.idUserEd = '';
+        this.nameUserEd = '';
+        this.lastNameUserEd = '';
+        this.secLastNameUserEd = '';
+        this.careerUserEd = '';
+        this.gradeUserEd = '';
+        this.groupUserEd = '';
+        this.ageUserEd = '';
+        this.allergiesUserEd = [];
+        this.prevIllUserEd = [];
+        this.emailUserEd = '';
+        this.passUserEd = '';
+      }
+    }, 1000);
   }
   async showAlert(headerA, messageA, button) { // Show an alert
     const addAlert = await this.alert.create({
