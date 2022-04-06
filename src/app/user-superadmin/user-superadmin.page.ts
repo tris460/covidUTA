@@ -161,6 +161,28 @@ export class UserSuperadminPage implements OnInit {
       }
     }, 1000);
   }
+  searchUserDelete($event) { // Search an user to delete
+    const id = $event.target.value;
+    this.apiUser.getOneUser(id);
+    setTimeout(() => {
+      const userData = this.apiUser.userInformation;
+      if (userData === null ) {
+        this.showAlert('Error', 'Usuario no encontrado.', ['OK']);
+      } else {
+        const userName = `${userData.strName} ${userData.strLastName}`;
+        this.showAlert('Alerta', `¿Está seguro de eliminar a ${userName}?`, [
+          'Cancelar',
+          {
+            text: 'OK',
+            handler: (x) => {
+              this.apiUser.deleteUser(id);
+              this.showAlert('Éxito', `Usuario eliminado correctamente.`, ['OK']);
+            }
+          }
+        ]);
+      }
+    }, 100);
+  }
   async showAlert(headerA, messageA, button) { // Show an alert
     const addAlert = await this.alert.create({
       header: headerA,

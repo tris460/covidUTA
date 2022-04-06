@@ -134,7 +134,11 @@
     <!-- Delete User -->
     <ion-card class="add-user">
       <p class="title" (click)="showFormDelete = !showFormDelete">Eliminar Usuario</p>
-      <ion-searchbar placeholder="Buscar..." class="search-bar" *ngIf="showFormDelete"></ion-searchbar>
+      <ion-searchbar
+      placeholder="Buscar por matrícula..."
+      class="search-bar"
+      *ngIf="showFormDelete"
+      (search)="searchUserDelete($event)"></ion-searchbar>
     </ion-card>
   </div>
 </ion-content>

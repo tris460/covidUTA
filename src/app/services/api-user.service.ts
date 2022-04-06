@@ -9,6 +9,7 @@ export class ApiUserService {
   information: any;
   userInformation: any;
   userUpdated: any;
+  userDeleted: any;
 
   constructor(private http: HttpClient) {
     this.urlApi = 'http://localhost:3000/api/users';
@@ -53,6 +54,17 @@ export class ApiUserService {
     .subscribe(
       res => {
         this.userInformation = res;
+      },
+      err => {
+        console.error(err);
+      }
+    );
+  }
+  deleteUser(id) {
+    this.http.delete(`${this.urlApi}/${id}`)
+    .subscribe(
+      res => {
+        this.userDeleted = res;
       },
       err => {
         console.error(err);
