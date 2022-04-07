@@ -9,18 +9,17 @@
   <ion-img [src]="background" class="background">
   </ion-img>
   <ion-card class="user-info">
-    <ion-img src="../../assets/profile-picture-default.png" class="profile-picture"></ion-img>
     <ion-card class="user-data">
       <p>{{userName}}</p>
       <p>Matrícula</p>
       <p>Carrera</p>
       <p>Estatus</p>
     </ion-card>
+    <ion-card class="extra-info">
+      <p>Más información</p>
+    </ion-card>
+    <ion-button (click)="logout()" color="danger" class="button">
+      <ion-label>Cerrar Sesión</ion-label>
+    </ion-button>
   </ion-card>
-  <ion-card class="extra-info">
-    <p>Información adicional</p>
-  </ion-card>
-  <ion-button (click)="logout()" color="danger" class="button">
-    <ion-label>Cerrar Sesión</ion-label>
-  </ion-button>
 </ion-content>
