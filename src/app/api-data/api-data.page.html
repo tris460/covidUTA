@@ -19,16 +19,16 @@
       <td>
         <tr>
           <ion-item>
-            <ion-label position="fixed"><b>País</b></ion-label>
-            <ion-label position="fixed"><b>Enfermos</b></ion-label>
-            <ion-label position="fixed"><b>Muertos</b></ion-label>
+            <ion-label position="fixed" class="font-quicksand"><b>País</b></ion-label>
+            <ion-label position="fixed" class="font-quicksand"><b>Enfermos</b></ion-label>
+            <ion-label position="fixed" class="font-quicksand"><b>Muertos</b></ion-label>
           </ion-item>
         </tr>
         <tr>
           <ion-item *ngFor="let p of dataArray">
-            <ion-label position="fixed">{{p.country}}</ion-label>
-            <ion-label position="fixed">{{p.sick}}</ion-label>
-            <ion-label position="fixed">{{p.death}}</ion-label>
+            <ion-label position="fixed" class="font-quicksand">{{p.country}}</ion-label>
+            <ion-label position="fixed" class="font-quicksand">{{p.sick}}</ion-label>
+            <ion-label position="fixed" class="font-quicksand">{{p.death}}</ion-label>
           </ion-item>
         </tr>
       </td>
