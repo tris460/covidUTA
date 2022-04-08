@@ -10,10 +10,12 @@
   </ion-img>
   <ion-card class="user-info">
     <ion-card class="user-data">
+      <p>{{name}}</p>
       <p>{{userName}}</p>
-      <p>Matrícula</p>
-      <p>Carrera</p>
-      <p>Estatus</p>
+      <p *ngIf="career === ''">{{career}}</p>
+      <p *ngIf="grade === ''">{{grade}}</p>
+      <p *ngIf="allergies === []">{{allergies}}</p>
+      <p *ngIf="illnesses === []">{{illnesses}}</p>
     </ion-card>
     <ion-card class="extra-info">
       <p>Más información</p>
