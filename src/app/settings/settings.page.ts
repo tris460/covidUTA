@@ -19,6 +19,7 @@ export class SettingsPage implements OnInit {
   grade: any;
   allergies: Array<string>;
   illnesses: Array<string>;
+  seeInfo: boolean;
 
   constructor(private router: Router, public userDataService: UserDataService, private apiUser: ApiUserService) {
     this.userName = userDataService.userLogged.email;
@@ -29,12 +30,13 @@ export class SettingsPage implements OnInit {
     this.illnesses = [];
     this.grade = '';
     this.career = '';
+    this.seeInfo = false;
     setTimeout(() => {
       this.userData = this.apiUser.information.filter(u => u.strEmail === this.userName);
       this.allergies = this.userData[0].arrAllergies;
       this.name = `${this.userData[0].strName} ${this.userData[0].strLastName}`;
       this.career = this.userData[0].strCareer;
-      this.grade = `${this.userData[0].intGrade}° ${this.userData[0].chaGroup}`;
+      this.grade = `${this.userData[0].intGrade}°${this.userData[0].chaGroup}`;
       this.illnesses = this.userData[0].arrPreviousIllnesses;
     }, 200);
   }

@@ -10,15 +10,18 @@
   </ion-img>
   <ion-card class="user-info">
     <ion-card class="user-data">
-      <p>{{name}}</p>
-      <p>{{userName}}</p>
-      <p *ngIf="career === ''">{{career}}</p>
-      <p *ngIf="grade === ''">{{grade}}</p>
-      <p *ngIf="allergies === []">{{allergies}}</p>
-      <p *ngIf="illnesses === []">{{illnesses}}</p>
+      <p><b>Nombre: </b>{{name}}</p>
+      <p><b>Email: </b>{{userName}}</p>
+      <p *ngIf="career !== ''"><b>Carrera: </b>{{career}}</p>
+      <p *ngIf="grade !== '0°'"><b>Grado y grupo: </b>{{grade}}</p>
+      <p *ngIf="allergies.length !== 0"><b>Alergias: </b>{{allergies}}</p>
+      <p *ngIf="illnesses.length !== 0"><b>Enfermedades: </b>{{illnesses}}</p>
     </ion-card>
-    <ion-card class="extra-info">
-      <p>Más información</p>
+    <ion-card class="extra-info" (click)="seeInfo = !seeInfo">
+      <p class="link">Más información</p>
+      <p *ngIf="seeInfo"><b>Materia:</b> Desarrollo Móvil Multiplataforma, Base de datos para cómputo en la nube.</p>
+      <p *ngIf="seeInfo"><b>Alumnos:</b> Alan Avelar Núñez, Ana Lucía Guzmán de Loera, Beatriz Martínez Pérez.</p>
+      <p *ngIf="seeInfo"><b>Grado y grupo:</b> 5°B</p>
     </ion-card>
     <ion-button (click)="logout()" color="danger" class="button">
       <ion-label>Cerrar Sesión</ion-label>

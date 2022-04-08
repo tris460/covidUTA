@@ -7,7 +7,7 @@
   top: 0%;
   padding: 20px;
   width: 95%;
-  height: 80%;
+  // height: 100%;
 }
 .user-data {
   padding: 10px;
@@ -19,11 +19,14 @@
   font-family: 'Quicksand', sans-serif;
 }
 .button {
-  position: absolute;
-  top: 85%;
+  position: relative;
   left: 25%;
   font-family: 'Quicksand', sans-serif;
 }
 .background {
   position: fixed;
+}
+.link {
+  text-decoration: underline;
+  text-align: center;
 }
