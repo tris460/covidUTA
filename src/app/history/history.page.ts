@@ -22,7 +22,10 @@ export class HistoryPage implements OnInit {
     this.logo = '../../assets/logocovid.png';
     this.background = '../../assets/background1.jpeg';
     this.userName = userDataService.userLogged.email;
-    this.getIllnesses();
+    this.illnessData = [];
+    setTimeout(() => {
+      this.getIllnesses();
+    }, 100);
     this.date = '';
     this.illness = '';
     this.symptoms = [];
