@@ -1,7 +1,7 @@
 <ion-tabs>
 
   <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="user" *ngIf="this.tipo === 'user'">
+    <ion-tab-button tab="user">
       <ion-icon name="home"></ion-icon>
     </ion-tab-button>
 
@@ -9,16 +9,8 @@
       <ion-icon name="time"></ion-icon>
     </ion-tab-button>
 
-    <ion-tab-button tab="user-admin" *ngIf="this.tipo === 'admin'">
-      <ion-icon name="home"></ion-icon>
-    </ion-tab-button>
-
     <ion-tab-button tab="history-admin" *ngIf="this.tipo === 'admin'">
       <ion-icon name="time"></ion-icon>
-    </ion-tab-button>
-
-    <ion-tab-button tab="user-superadmin" *ngIf="this.tipo === 'superadmin'">
-      <ion-icon name="home"></ion-icon>
     </ion-tab-button>
 
     <ion-tab-button tab="history-superadmin" *ngIf="this.tipo === 'superadmin'">

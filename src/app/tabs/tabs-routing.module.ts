@@ -16,14 +16,6 @@ const routes: Routes = [
         loadChildren: () => import('../user/user.module').then( m => m.UserPageModule)
       },
       {
-        path: 'user-admin',
-        loadChildren: () => import('../user-admin/user-admin.module').then( m => m.UserAdminPageModule)
-      },
-      {
-        path: 'user-superadmin',
-        loadChildren: () => import('../user-superadmin/user-superadmin.module').then( m => m.UserSuperadminPageModule)
-      },
-      {
         path: 'history',
         loadChildren: () => import('../history/history.module').then( m => m.HistoryPageModule)
       },
@@ -41,14 +33,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/settings',
+        redirectTo: '/tabs/user',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/settings',
+    redirectTo: '/tabs/user',
     pathMatch: 'full'
   }
 ];
