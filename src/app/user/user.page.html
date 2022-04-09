@@ -5,7 +5,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<!-- Screen for user -->
+<ion-content *ngIf="userLoggedRol === 'user'">
   <ion-img [src]="background" class="background">
   </ion-img>
   <p class="welcome">Welcome {{userName}}!</p>
@@ -55,3 +56,187 @@
   </ion-card>
 </ion-content>
 
+<!-- Screen for admin -->
+<ion-content *ngIf="userLoggedRol === 'admin'">
+  <ion-img [src]="background" class="background">
+  </ion-img>
+  <p class="without-register" *ngIf="lastRegisters.length === 0">No hay registros de enfermedades.</p>
+  <ion-card class="new" *ngIf="lastRegisters.length > 0 ">
+    <p class="title">Nuevos registros</p>
+    <ion-card *ngFor="let ill of lastRegisters">
+      <table>
+        <td>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">ID</ion-label>
+              <p>{{ill.idUser.slice(0,6)}}</p>
+            </ion-item>
+          </tr>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Estatus</ion-label>
+              <p>{{ill.intStatus}}</p>
+            </ion-item>
+          </tr>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Fecha</ion-label>
+              <p>{{ill.strDate.slice(0,10)}}</p>
+            </ion-item>
+          </tr>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Enfermedad</ion-label>
+              <p>{{ill.strName}}</p>
+              </ion-item>
+          </tr>
+          <tr>
+            <ion-item>
+              <ion-label position="fixed">Notas</ion-label>
+              <p>{{ill.strNotes}}</p>
+            </ion-item>
+          </tr>
+        </td>
+      </table>
+    </ion-card>
+  </ion-card>
+</ion-content>
+
+<!-- Screen for superadmin -->
+<ion-content *ngIf="userLoggedRol === 'superadmin'">
+  <ion-img [src]="background" class="background">
+  </ion-img>
+  <div class="forms">
+    <!-- Add User -->
+    <ion-card class="add-user">
+      <p class="title" (click)="showFormAdd = !showFormAdd">Agregar Usuario</p>
+      <ion-card *ngIf="showFormAdd">
+        <ion-item>
+          <ion-select placeholder="Rol*" (ionChange)="getRol($event)">
+            <ion-select-option value="user">Usuario</ion-select-option>
+            <ion-select-option value="admin">Administrador</ion-select-option>
+            <ion-select-option value="superadmin">Super administrador</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input type="number" placeholder="Matrícula*" [(ngModel)]="idUser"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Nombre(s)*"[(ngModel)]="nameUser"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Apellido Paterno*"[(ngModel)]="lastNameUser"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Apellido Materno" [(ngModel)]="secondLastNameUser"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="number" placeholder="Edad*" [(ngModel)]="ageUser"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Alergias" [(ngModel)]="allergiesUser"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Enfermedades Previas" [(ngModel)]="previousIllnessUser"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Carrera" [(ngModel)]="careerUser"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="number" placeholder="Grado" [(ngModel)]="gradeUser"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Grupo" [(ngModel)]="groupUser"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Email*" [(ngModel)]="emailUser"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="password" placeholder="Contraseña*" [(ngModel)]="passwordUser"></ion-input>
+        </ion-item>
+        <ion-button color="light" class="button" (click)="addUser()">
+          <ion-label>Agregar</ion-label>
+        </ion-button>
+      </ion-card>
+    </ion-card>
+    <!-- Edit User -->
+    <ion-card class="add-user">
+      <p class="title" (click)="showFormEdit = !showFormEdit">Editar Usuario</p>
+      <ion-card *ngIf="showFormEdit">
+        <ion-searchbar
+        placeholder="Buscar por matrícula..."
+        class="search-bar"
+        (search)="searchUser($event)"></ion-searchbar>
+        <div *ngIf="!existentUser">
+          <p class="info-no-data">Selecciona un usuario correcto para continuar.</p>
+        </div>
+        <div></div>
+      <div *ngIf="existentUser">
+        <ion-item>
+          <ion-select placeholder="Rol*" (ionChange)="getRol($event)" value={{rolUser}}>
+            <ion-select-option value="user">Usuario</ion-select-option>
+            <ion-select-option value="admin">Administrador</ion-select-option>
+            <ion-select-option value="superadmin">Super administrador</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="nameUserEd"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Apellido Paterno</ion-label>
+          <ion-input type="text" [(ngModel)]="lastNameUserEd"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Apellido Materno</ion-label>
+          <ion-input type="text" [(ngModel)]="secLastNameUserEd"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Carrera</ion-label>
+          <ion-input type="text" [(ngModel)]="careerUserEd"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Grado</ion-label>
+          <ion-input type="number" [(ngModel)]="gradeUserEd"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Grupo</ion-label>
+          <ion-input type="text" [(ngModel)]="groupUserEd"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Edad</ion-label>
+          <ion-input type="number" [(ngModel)]="ageUserEd"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Alergias</ion-label>
+          <ion-input type="text" [(ngModel)]="allergiesUserEd"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Enfermedades Previas</ion-label>
+          <ion-input type="text" [(ngModel)]="prevIllUserEd"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input type="text" [(ngModel)]="emailUserEd"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="passUserEd"></ion-input>
+        </ion-item>
+        <ion-button color="light" class="button" (click)="editUser()">
+          <ion-label>Aceptar</ion-label>
+        </ion-button>
+      </div>
+      </ion-card>
+    </ion-card>
+    <!-- Delete User -->
+    <ion-card class="add-user">
+      <p class="title" (click)="showFormDelete = !showFormDelete">Eliminar Usuario</p>
+      <ion-searchbar
+      placeholder="Buscar por matrícula..."
+      class="search-bar"
+      *ngIf="showFormDelete"
+      (search)="searchUserDelete($event)"></ion-searchbar>
+    </ion-card>
+  </div>
+</ion-content>
