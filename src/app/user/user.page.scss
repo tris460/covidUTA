@@ -1,6 +1,9 @@
 ion-button {
   margin: 8% 0% 8% 27%;
 }
+ion-card {
+  padding: 10px;
+}
 p {
   font-family: 'Quicksand', sans-serif;
 }
@@ -33,4 +36,46 @@ p {
 }
 .background {
   position: fixed;
+}
+.new {
+  position: absolute;
+  top: 0%;
+  left: 5%;
+}
+.title {
+  font-size: 20px;
+  text-align: center;
+}
+.without-register {
+  position: absolute;
+  top: 45%;
+  left: 10%;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  color: #f00;
+  text-align: center;
+}
+.button {
+  margin: 10px 0px;
+  margin-left: 45%;
+}
+.forms {
+  position: absolute;
+  top: 0%;
+}
+.add-user {
+  padding: 10px;
+  width: 90vw;
+}
+.search-bar {
+  font-family: 'Quicksand', sans-serif;
+}
+.info-no-data {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 20px;
+  color: #f00;
+  text-align: center;
+}
+.button-form {
+  margin-left: 35%;
 }
