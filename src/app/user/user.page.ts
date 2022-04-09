@@ -61,6 +61,7 @@ export class UserPage implements OnInit {
     public alert: AlertController,
     private apiIllness: ApiIllnessService,
     private apiUser: ApiUserService) {
+      // window.cache.clear();
       this.date = new Date();
       this.dateDMY = this.date.toDateString();
       this.userName = userDataService.userLogged.email;

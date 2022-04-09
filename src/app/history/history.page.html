@@ -8,7 +8,6 @@
 <ion-content>
   <ion-img [src]="background" class="background">
   </ion-img>
-  <ion-searchbar placeholder="Buscar..." class="search-bar"></ion-searchbar>
   <p class="without-register" *ngIf="illnessData.length === 0">No hay registros de enfermedades.</p>
   <div class="margin">
   <ion-card class="data" *ngFor="let ill of illnessData">
