@@ -61,7 +61,7 @@
   <ion-img [src]="background" class="background">
   </ion-img>
   <p class="without-register" *ngIf="lastRegisters.length === 0">No hay registros de enfermedades.</p>
-  <ion-card class="new" *ngIf="lastRegisters.length > 0 ">
+  <ion-card class="new" *ngIf="lastRegisters.length > 0" class="table">
     <p class="title">Nuevos registros</p>
     <ion-card *ngFor="let ill of lastRegisters">
       <table>

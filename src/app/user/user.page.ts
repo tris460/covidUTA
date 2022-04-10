@@ -110,8 +110,11 @@ export class UserPage implements OnInit {
         strNotes: this.notes,
       };
       this.apiIllness.saveData(NEW_SYMPTOMS);
-      this.showAlert('Éxito', 'Guardado correctamente.', ['OK']);
+      this.showAlert('Éxito', 'Guardado correctamente.', []);
       this.clearForm();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     } else {
       // If the user doesn't fill the fields
       this.showAlert('Error', 'Debes llenar todos los campos.', ['OK']);
@@ -157,7 +160,10 @@ export class UserPage implements OnInit {
         chaGroup: this.groupUser
       };
       const res = this.apiUser.saveUser(NEW_USER);
-      this.showAlert('¡Éxito!', 'Usuario guardado correctamente.', ['OK']);
+      this.showAlert('¡Éxito!', 'Usuario guardado correctamente.', []);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
       this.clearForm();
     } else {
       this.showAlert('¡Error!', 'Asegurate de completar correctamente los campos.', ['OK']);
@@ -184,12 +190,15 @@ export class UserPage implements OnInit {
     setTimeout(() => {
       const status = this.apiUser.userUpdated.status;
       if(status === 'User updated') {
-        this.showAlert('¡Éxito!', 'Usuario actualizado correctamente.', ['OK']);
+        this.showAlert('¡Éxito!', 'Usuario actualizado correctamente.', []);
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
         this.existentUser = false;
       } else {
         this.showAlert('¡Error!', 'Asegurate de completar correctamente los campos.', ['OK']);
       }
-    }, 50);
+    }, 200);
   }
   //Search by user and show the information
   searchUser($event) {
@@ -248,7 +257,10 @@ export class UserPage implements OnInit {
             text: 'OK',
             handler: () => {
               this.apiUser.deleteUser(id);
-              this.showAlert('Éxito', `Usuario eliminado correctamente.`, ['OK']);
+              this.showAlert('Éxito', `Usuario eliminado correctamente.`, []);
+              setTimeout(() => {
+                window.location.reload();
+              }, 1000);
             }
           }
         ]);
