@@ -61,7 +61,6 @@ export class UserPage implements OnInit {
     public alert: AlertController,
     private apiIllness: ApiIllnessService,
     private apiUser: ApiUserService) {
-      // window.cache.clear();
       this.date = new Date();
       this.dateDMY = this.date.toDateString();
       this.userName = userDataService.userLogged.email;
@@ -120,12 +119,13 @@ export class UserPage implements OnInit {
   }
   // Get the illnesses of the current day
   getIllnesses() {
+    this.apiIllness.getData();
     setTimeout(() => {
       this.apiInfo = this.apiIllness.information;
       if(this.apiInfo.length > 0) {
         this.lastRegisters =  this.apiInfo.slice(this.apiInfo.length-5);
       }
-    }, 50);
+    }, 100);
   }
   // Get the rol selected
   getRol($event) {

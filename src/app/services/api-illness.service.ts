@@ -9,7 +9,7 @@ export class ApiIllnessService {
   information: any;
 
   constructor(private http: HttpClient) {
-    this.urlApi = 'http://localhost:3000/api/illness/';
+    this.urlApi = 'http://192.168.0.124:3000/api/illness/';
     this.getData();
   }
   getData() { // Get the illnesses registered in the DB

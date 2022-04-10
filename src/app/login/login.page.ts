@@ -36,6 +36,7 @@ export class LoginPage implements OnInit {
       };
 
       localStorage.setItem('userCovidUta', JSON.stringify(USER_INFO)); //Save data in localStorage, it only receives string
+      window.location.reload();
       this.router.navigate(['']);
     } else {
       this.showAlert('Error', 'Correo o contraseña incorrecta', ['OK']);

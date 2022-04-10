@@ -38,6 +38,6 @@ export class ApiDataPage implements OnInit {
           death: i.Deaths
         });
       }
-    }, 10000);
+    }, 5000);
   }
 }

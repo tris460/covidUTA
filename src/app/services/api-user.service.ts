@@ -12,17 +12,18 @@ export class ApiUserService {
   userDeleted: any;
 
   constructor(private http: HttpClient) {
-    this.urlApi = 'http://localhost:3000/api/users';
+    this.urlApi = 'http://192.168.0.124:3000/api/users';
     this.getData();
   }
   getData() {
-    this.http.get(this.urlApi)
+    this.http.get(`${this.urlApi}/`)
     .subscribe(
       res => {
         this.information = res;
       },
       err => {
         console.error(err);
+        this.information = [];
       }
     );
   }
